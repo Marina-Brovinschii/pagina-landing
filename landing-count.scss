@@ -1,0 +1,248 @@
+@use 'sass:list';
+
+$colors: white, rgb(106, 106, 106), rgb(65, 65, 65), red, black, rgba(255, 255, 255, 0.552), #C2C4C8, #F6F6F6;
+$size: 25px;
+$fontFamily: 'futuratee-regular', sans-serif;
+
+body {
+    margin: 0;
+    padding: 0;
+}
+.top {
+    font-family: $fontFamily;
+    background-image: url(images/image1.png);
+    block-size: 50vw;
+    .count-header {
+        position: fixed;
+        z-index: 1000000;
+        inline-size: 100%;
+        background-color: list.nth($colors, 6);
+        .count-header_list {
+            inline-size: 70%;
+            margin-block-end: 0;
+        }
+    }
+    .count-navbar {
+        background-color: list.nth($colors, 1);
+        padding-block-start: $size/3;
+        position: relative;
+        top: $size*3;
+        block-size: $size*2;
+        z-index: 9999;
+        span {
+            >a {
+                color: list.nth($colors, 2);
+                text-decoration: none;
+                font-size: $size;
+                &:hover {
+                    color: list.nth($colors, 3);
+                }
+            }
+            ul {
+                display: none;
+                margin: 0;
+                padding: 0 $size;
+                position: absolute;
+                background-color: list.nth($colors, 6);
+                padding-block-start: $size/3;
+                li {
+                    padding: 0 5px;
+                    &:hover {
+                        background-color: list.nth($colors, 2);
+                    }
+                    a {
+                        font-size: $size/1.5;
+                        color: list.nth($colors, 5);
+                        text-decoration: none;
+                    }
+                }
+            }
+            input {
+                display: none;
+                &:checked+label+ul {
+                    list-style: none;
+                    display: block;
+                }
+                &:checked+label::after {
+                    content: "🡮";
+                    font-size: $size;
+                    color: list.nth($colors, 4)
+                }
+            }
+            label {
+                font-size: $size;
+                color: list.nth($colors, 2);
+                cursor: pointer;
+                &:hover {
+                    color: list.nth($colors, 3);
+                }
+                &::after {
+                    content: "🡭";
+                    font-size: $size;
+                    color: list.nth($colors, 4);
+                }
+            }
+        }
+    }
+    .count-main__section {
+        position: relative;
+        inline-size: 100%;
+        block-size: 93%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h1 {
+            position: absolute;
+            font-weight: 800;
+            color: list.nth($colors, 1);
+            font-size: $size*2.3;
+            inline-size: 100%;
+            text-align: center;
+            align-self: center;
+        }
+    }
+}
+.middle {
+    background-image: url(images/image5.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    .middle-article__info {
+        font-family: $fontFamily;
+        inline-size: $size*12;
+        padding: $size $size $size/2 $size;
+        transform: translateY(-$size*4);
+        background-image: linear-gradient(list.nth($colors, 4) 15%, list.nth($colors, 1) 30%);
+        border-radius: 5%;
+        h3 {
+            text-align: center;
+            color: list.nth($colors,1);
+            font-weight: 600;
+        }
+    }
+}
+.middle-second {
+    font-family: $fontFamily;
+    background-image: url(images/grey.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    inline-size: 100vw;
+    block-size: 110vh;
+    .price-section {
+        padding-block-start: 3em;
+        position: relative;
+        block-size: 100vh;
+        inline-size: 100vw;
+            .price-section__title {
+                position: absolute;
+                padding: $size 0;
+                font-weight: 600;
+                padding-inline-start: 39vw;
+                color: list.nth($colors, 4);
+            }
+            .price-section__card {
+                inline-size: $size*15;
+                padding: $size/2;
+                block-size: 57%;
+                margin-block-start: $size*4;
+                background-color: list.nth($colors, 2) !important;
+                .card-img-top {
+                    margin-block-start: 1em;
+                }
+                .card-title {
+                    text-align: center;
+                }
+                img {
+                    inline-size: $size*3;
+                    margin: 0 auto;
+                }
+                &:nth-child(5) {
+                    transform: translateY(3em);
+                    position: absolute;
+                    bottom: 0;
+                    left: 10em;
+                    block-size: 15em;
+                    inline-size: 32em;
+                }
+                &:nth-child(6) {
+                    transform: translateY(3em);
+                    position: absolute;
+                    bottom: 0;
+                    right: 10em;
+                    block-size: 15em;
+                    inline-size: 32em;
+                }
+            }
+    
+        }
+}
+.contacts {
+    font-family: $fontFamily;
+    height: 50vh;
+    width: 100vw;
+    background-image: url(images/image4.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    .contacts-title {
+        color: list.nth($colors, 1);
+        font-weight: 600;
+        padding-top:2em;
+        padding-left: 2em;
+    }
+    .count-header_list {
+        color: list.nth($colors, 1);
+        margin-left: 2em;
+        margin-top: 1em !important;
+        li {
+            padding-top: 2em;
+        }
+    }
+    .retele-sociale {
+        a {
+            height: $size;
+            transform: translateX(5em) translateY(11em);
+            padding-left: $size;
+            bottom: 2em;
+            img {
+                width: $size*2;
+            }
+        }
+        .form {
+            background-color: list.nth($colors,8);
+            padding: $size;
+            position: relative;
+            transform: translateX(13em) translateY(2.5em);
+            width: 35em;
+            h2 {
+                font-size: $size*1.1;
+                color: list.nth($colors, 5);
+                text-align: center;
+            }
+            .input {
+                border: none;
+                font-size: $size;
+                padding: $size/8;
+                width: 15em;
+                padding-left: $size*2;
+                background-image: url(images/at.svg);
+                background-position: left;
+                background-repeat: no-repeat;
+                border-radius: $size*1.5;
+            }
+            a {
+                color: list.nth($colors, 5);
+                text-decoration: none;
+            }
+            button {
+                border: none;
+                font-size: $size;
+                padding: $size/8;
+                color: transparent;
+                background-color: list.nth($colors, 4);
+                background-image: url(images/email-fast.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                border-radius: $size*1.5;
+            }
+        }
+    }
+}
